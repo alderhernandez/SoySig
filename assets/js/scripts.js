@@ -6,14 +6,14 @@ function loadStyle(e, t) {
     r.rel = "stylesheet", r.type = "text/css", r.href = e, t && (r.onload = function() {
         t()
     });
+
+    var base_url = window.location.origin;
+console.log(base_url);
     var l = $(a).find('[href$="main.css"]');
     //console.log(l[0].before(r) +"": a.appendChild(r));
-    if (r.href == 'http://localhost/SoySig/index.php/css/dore.light.bluenavy.min.css') {
-        r.href = r.href.replace('index.php/','')
-        0 !== l.length ? l[0].before(r) : a.appendChild(r);
-    }else{
+    r.href = 'http://localhost/SoySig/css/dore.light.bluenavy.min.css';    
         0 !== l.length ? l[0].before(r) : a.appendChild(r)
-    }
+    
     
     
 }! function(e) {    
@@ -64,3 +64,33 @@ function loadStyle(e, t) {
         e(t.target).parents().hasClass("theme-colors") || e(t.target).parents().hasClass("theme-button") || e(t.target).hasClass("theme-button") || e(t.target).hasClass("theme-colors") || e(".theme-colors").hasClass("shown") && e(".theme-colors").removeClass("shown")
     }))
 }(jQuery);
+
+function globalFunction(object) {
+    //alert(object.id);
+
+    //console.log('#'+object.id);
+    clase = 'alert-error';
+    switch (object.tipo) {
+        case 'warning':
+            clase = 'alert-warning';
+            break;
+        case 'success':
+            clase = 'alert-success';
+            break;
+        default:
+            clase = 'alert-error';
+            break;
+    }
+    str = '<div class="alert '+clase+' alert-dismissible fade show rounded mb-0" role="alert"><strong>Aviso</strong>'+object.mensaje+' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>';
+    html = $.parseHTML(str);
+
+    //$('#'+object.id).parentNode.insertBefore(html);
+    const parentDiv = document.getElementById(object.id).parentNode;
+
+    console.log(parentDiv);
+    let sp2 = document.getElementById(object.id);
+    parentDiv.insertBefore(html, sp2);
+
+
+
+}

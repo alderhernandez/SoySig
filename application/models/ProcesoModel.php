@@ -9,7 +9,8 @@ class ProcesoModel extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->database();		
+		$this->load->database();
+		date_default_timezone_set("America/Managua");	
 	}
 
 	public function procesosSearch($filtro){
@@ -29,12 +30,97 @@ class ProcesoModel extends CI_Model
 				 $json["data"][$i]["FechaCrea"] = $key["FechaCrea"];
 				 $json["data"][$i]["FechaEdita"] = $key["FechaEdita"];
                  $json["data"][$i]["Estado"] = $key["Estado"];
-				 $json["data"][$i]["Editar"] = '<a class="btn btn-primary" target="_blank" href="'.base_url("index.php/editarProceso").'">Editar</a>';
-				 $json["data"][$i]["Gestiones"] = '<a class="btn btn-primary" target="_blank" href="'.base_url("index.php/verGestionesProceso").'"><i class="simple-icon-arrow-right"></i></a>';;
+				 $json["data"][$i]["Editar"] = '<a class="btn btn-primary" href="'.base_url("index.php/editarProceso/").$key["IdProceso"].'">Editar</a>';
+				 $json["data"][$i]["Gestiones"] = '<a class="btn btn-primary" href="'.base_url("index.php/verGestionesProceso").'"><i class="simple-icon-arrow-right"></i></a>';;
 				 $i++;
          	}
 		}
         echo json_encode($json);
+	}
+
+	public function guardarProceso($descripcion)
+	{
+		$mensaje = array(); $string = '';
+		try {
+			if(strlen($descripcion)<5){
+				$mensaje[0]["retorno"] = -1;
+				$mensaje[0]["tipo"] = "error";
+				$mensaje[0]["mensaje"] = "La descripción debe tener al menos 5 caracteres";
+				echo json_encode($mensaje);
+				return;
+			}
+
+			$insert = array(	
+				'Descripcion' => $descripcion,
+				'Estado' => 'ACTIVO',
+				"FechaCrea" => gmdate(date("Y-m-d h:i:s")),
+				'IdUsuarioCrea' => 1,
+			);
+
+			$result = $this->db->insert('CatProcesos',$insert);
+			if ($result) {
+				$mensaje[0]["retorno"] = 1;
+				$mensaje[0]["tipo"] = "error";
+				$mensaje[0]["mensaje"] = "Proceso guardado correctamente";
+				echo json_encode($mensaje);
+				$this->db->trans_commit();
+				return;
+			}
+		} catch (Exception $ex) {
+			$this->db->rollBack();
+			$mensaje[0]["retorno"] = -1;
+			$mensaje[0]["tipo"] = "error";
+			$mensaje[0]["mensaje"] = "Error: ".$ex;
+			echo json_encode($mensaje);
+			return;
+		}
+	}
+	
+	public function guardarEditarProceso($descripcion,$id)
+	{
+		$mensaje = array(); $string = '';
+		try {
+			if(strlen($descripcion)<5){
+				$mensaje[0]["retorno"] = -1;
+				$mensaje[0]["tipo"] = "error";
+				$mensaje[0]["mensaje"] = "La descripción debe tener al menos 5 caracteres";
+				echo json_encode($mensaje);
+				return;
+			}
+
+			$insert = array(	
+				'Descripcion' => $descripcion,
+				'Estado' => 'ACTIVO',
+				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
+				'IdUsuarioEdita' => 1
+			);
+			echo $id;
+
+					  $this->db->where('IdProceso',$id);
+			$result = $this->db->update('CatProcesos',$insert);
+
+			if ($result) {
+				$this->db->trans_commit();
+				$mensaje[0]["retorno"] = 1;
+				$mensaje[0]["tipo"] = "success";
+				$mensaje[0]["mensaje"] = "Proceso guardado correctamente";
+				echo json_encode($mensaje);
+				
+				return;
+			}
+		} catch (Exception $ex) {
+			$this->db->rollBack();
+			$mensaje[0]["retorno"] = -1;
+			$mensaje[0]["tipo"] = "error";
+			$mensaje[0]["mensaje"] = "Error: ".$ex;
+			echo json_encode($mensaje);
+			return;
+		}
+	}
+	public function getProceso($id)
+	{
+		$result =  $this->db->get('CatProcesos',array('id'=>$id));
+		return $result->result_array();
 	}
 
 }

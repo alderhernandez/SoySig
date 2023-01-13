@@ -18,10 +18,11 @@
 
 		if (bandera) {
 			$.ajax({
-						url: "<?php echo base_url("index.php/guardarProceso")?>",
+						url: "<?php echo base_url("index.php/guardarEditarProceso")?>",
 						type: "POST",
 						data: {
-							descripcion: $('#txtDescripcion').val()
+							descripcion: $('#txtDescripcion').val(),
+							id: <?php echo $datos[0]["IdProceso"];?>
 						},
 						success: function(data){
 							let obj = jQuery.parseJSON(data);

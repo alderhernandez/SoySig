@@ -58,3 +58,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['procesos'] = 'ProcesoController/index';
 $route['procesosSearch'] = 'ProcesoController/procesosSearch';
 $route['nuevoProcesos'] = 'ProcesoController/nuevoProcesos';
+$route['guardarProceso'] = 'ProcesoController/guardarProceso';
+$route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
+$route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
