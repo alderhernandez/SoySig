@@ -43,7 +43,7 @@
 						<div class="col-12 col-lg-8">
 							<div class="sortable-survey">
                                 <?php foreach ($gestiones as $key ) {
-                                    
+                                    echo 
                                 } ?>
 								<div draggable="false" class="" style="">
 									<div class="card question d-flex mb-4 edit-quesiton">
