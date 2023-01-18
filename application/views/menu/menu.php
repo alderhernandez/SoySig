@@ -35,19 +35,19 @@
                                 <li><a href="<?php echo base_url('index.php/procesos') ?>"><i class="simple-icon-grid""></i> <span
                                             class="d-inline-block">Lista de procesos</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevoProcesos') ?>"><i class="iconsminds-folder-add--"></i> <span
-                                            class="d-inline-block">NUevo Proceso</span></a></li>                                
+                                            class="d-inline-block">Nuevo Proceso</span></a></li>
                             </ul>
                         </div>
                     </li>
                     <li><a href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true"
                             aria-controls="collapseProduct" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span class="d-inline-block">Product</span></a>
+                                class="simple-icon-arrow-down"></i> <span class="d-inline-block">Aministración Gestiones</span></a>
                         <div id="collapseProduct" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
-                                <li><a href="Pages.Product.List.html"><i class="simple-icon-credit-card"></i> <span
-                                            class="d-inline-block">Data List</span></a></li>
-                                <li><a href="Pages.Product.Thumbs.html"><i class="simple-icon-list"></i> <span
-                                            class="d-inline-block">Thumb List</span></a></li>
+                                <li><a href="<?php echo base_url('index.php/gestiones') ?>"><i class="simple-icon-credit-card"></i> <span
+                                            class="d-inline-block">Lista de gestiones</span></a></li>
+                                <li><a href="<?php echo base_url('index.php/nuevaGestion') ?>"><i class="iconsminds-folder-add--"></i> <span
+                                            class="d-inline-block">Nueva gestion</span></a></li>
                                 <li><a href="Pages.Product.Images.html"><i class="simple-icon-grid"></i> <span
                                             class="d-inline-block">Image List</span></a></li>
                                 <li><a href="Pages.Product.Detail.html"><i class="simple-icon-book-open"></i> <span

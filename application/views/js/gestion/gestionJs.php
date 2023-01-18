@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-        $('#catProcesos').DataTable();
+        $('#catGestion').DataTable();
         buscar();
     });
 
@@ -10,9 +10,9 @@
 
 
     function buscar() {
-        var table = $("#catProcesos").DataTable({
+        var table = $("#catGestion").DataTable({
 	  	"ajax": {
-				"url": "procesosSearch",
+				"url": "gestionSearch",
 				"type": "POST",
                 "data": {
                     filtro: $('#filtro').val()
@@ -49,14 +49,13 @@
 				}
 			},
 			"columns": [
-				{"data" : "IdProceso"},
+				{"data" : "IdGestion"},
 				{"data" : "Descripcion"},
                 {"data" : "Estado"},
 				{"data" : "FechaCrea"},				
                 {"data" : "FechaEdita"},
-				{"data" : "Editar"},                
-                {"data" : "Gestiones"},
-				{"data" : "Agregar"}
+				{"data" : "Editar"}
+                
                
 			]
 		});	

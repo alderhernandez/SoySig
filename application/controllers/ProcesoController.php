@@ -30,8 +30,8 @@ class ProcesoController extends CI_Controller {
 
 	public function editarProceso($id)
 	{
-		$data['datos'] = $this->ProcesoModel->getProceso($id);
-
+		$data['datos'] = $this->ProcesoModel->getProceso($id,null);
+		//echo json_encode($data);//return;
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('proceso/editarProceso',$data);
@@ -46,11 +46,22 @@ class ProcesoController extends CI_Controller {
 	
 	public function guardarEditarProceso()
 	{
-		$this->ProcesoModel->guardarEditarProceso($this->input->post('descripcion'),$this->input->post('id'));
+		$this->ProcesoModel->guardarEditarProceso($this->input->post('descripcion'),$this->input->post('id'),$this->input->post('estado'));
 	}
 
     public function procesosSearch()
     {
         return $this->ProcesoModel->procesosSearch($this->input->post('filtro'));
     }
+
+	public function verGestionesProceso($id)
+	{
+		$data["proceso"] = $this->ProcesoModel->getProceso($id,null);
+
+		$this->load->view('header/header');
+		$this->load->view('menu/menu');
+		$this->load->view('proceso/verGestiones',$data);
+		$this->load->view('footer/footer');
+        $this->load->view('js/procesos/nuevoProcesosJs');
+	}
 }

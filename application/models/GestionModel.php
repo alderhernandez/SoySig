@@ -4,7 +4,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ProcesoModel extends CI_Model
+class GestionModel extends CI_Model
 {
 	public function __construct()
 	{
@@ -13,7 +13,7 @@ class ProcesoModel extends CI_Model
 		date_default_timezone_set("America/Managua");	
 	}
 
-	public function procesosSearch($filtro){
+	public function GestionSearch($filtro){
 		$queryRuta = ''; $json = array(); $i = 0;
         $and = '';
 		if ($filtro!='') {
@@ -21,25 +21,24 @@ class ProcesoModel extends CI_Model
         }
 
 
-		$query = $this->db->query("SELECT * FROM CatProcesos WHERE 1=1 ".$and);
+		$query = $this->db->query("SELECT * FROM CatGestion WHERE 1=1 ".$and);
 
          if($query->num_rows() > 0){
 			 foreach ($query->result_array() as $key) {
 			 	 $json["data"][$i]["IdProceso"] = $key["IdProceso"];
+				  $json["data"][$i]["IdGestion"] = $key["IdGestion"];
 				 $json["data"][$i]["Descripcion"] = $key["Descripcion"];
 				 $json["data"][$i]["FechaCrea"] = $key["FechaCrea"];
 				 $json["data"][$i]["FechaEdita"] = $key["FechaEdita"];
                  $json["data"][$i]["Estado"] = $key["Estado"];
-				 $json["data"][$i]["Editar"] = '<a class="btn btn-primary" href="'.base_url("index.php/editarProceso/").$key["IdProceso"].'">Editar</a>';
-				 $json["data"][$i]["Gestiones"] = '<a class="btn btn-primary" href="'.base_url("index.php/verGestionesProceso/").$key["IdProceso"].'"><i class="simple-icon-arrow-right"></i></a>';
-				 $json["data"][$i]["Agregar"] = '<a class="btn btn-primary" href="'.base_url("index.php/nuevaGestion/").$key["IdProceso"].'"><i class="simple-icon-plus"></i></a>';
+				 $json["data"][$i]["Editar"] = '<a class="btn btn-primary" href="'.base_url("index.php/editarGestion/").$key["IdProceso"].'">Editar</a>';				 
 				 $i++;
          	}
 		}
         echo json_encode($json);
 	}
 
-	public function guardarProceso($descripcion)
+	public function guardarGestion($descripcion,$idProceso,$siglas)
 	{
 		$mensaje = array(); $string = '';
 		try {
@@ -53,16 +52,18 @@ class ProcesoModel extends CI_Model
 
 			$insert = array(	
 				'Descripcion' => $descripcion,
+				'IdProceso' => $idProceso,
+				'Sigla' => $siglas,
 				'Estado' => 'ACTIVO',
 				"FechaCrea" => gmdate(date("Y-m-d h:i:s")),
 				'IdUsuarioCrea' => 1,
 			);
 
-			$result = $this->db->insert('CatProcesos',$insert);
+			$result = $this->db->insert('CatGestion',$insert);
 			if ($result) {
 				$mensaje[0]["retorno"] = 1;
-				$mensaje[0]["tipo"] = "error";
-				$mensaje[0]["mensaje"] = "Proceso guardado correctamente";
+				$mensaje[0]["tipo"] = "succes";
+				$mensaje[0]["mensaje"] = "Gestión guardada correctamente";
 				echo json_encode($mensaje);
 				$this->db->trans_commit();
 				return;
@@ -77,7 +78,7 @@ class ProcesoModel extends CI_Model
 		}
 	}
 	
-	public function guardarEditarProceso($descripcion,$id,$estado)
+	public function guardarEditarGestion($descripcion,$id,$estado,$idProceso)
 	{
 		$mensaje = array(); $string = '';
 		try {
@@ -88,23 +89,24 @@ class ProcesoModel extends CI_Model
 				echo json_encode($mensaje);
 				return;
 			}
-
+//echo $estado;return;
 			$insert = array(	
 				'Descripcion' => $descripcion,
+				'IdProceso' => $idProceso,
 				'Estado' => $estado == 1 ? 'ACTIVO' : "INACTIVO",
 				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
 				'IdUsuarioEdita' => 1
 			);
-			echo $id;
+			
 
-					  $this->db->where('IdProceso',$id);
-			$result = $this->db->update('CatProcesos',$insert);
+					  $this->db->where('IdGestion',$id);
+			$result = $this->db->update('CatGestion',$insert);
 
 			if ($result) {
 				$this->db->trans_commit();
 				$mensaje[0]["retorno"] = 1;
 				$mensaje[0]["tipo"] = "success";
-				$mensaje[0]["mensaje"] = "Proceso editado correctamente";
+				$mensaje[0]["mensaje"] = "Gestion editada correctamente";
 				echo json_encode($mensaje);
 				
 				return;
@@ -118,21 +120,10 @@ class ProcesoModel extends CI_Model
 			return;
 		}
 	}
-	public function getProceso($id,$active = null)
+	public function getGestion($id)
 	{
-		$condicion = "";
-		$andId = "";
-		if($active != null){
-			$condicion = "and t0.Estado = '".$active."'";
-		}
-		if ($id != null) {
-			$andId =  "and t0.idProceso = ".$id;
-		}
-
-		$result =  $this->db->query("SELECT t0.*,t1.Nombres ,(SELECT COUNT(IdGestion) from CatGestion  where 1=1 ".$andId.") as cantidad 
-										FROM CatProcesos t0 
-										inner join Usuarios t1 on t1.IdUsuario = t0.IdUsuarioCrea
-										where 1 = 1 ".$andId." ".$condicion);
+		//$result =  $this->db->get('CatGestion',array('id'=>$id));
+		$result =  $this->db->query("SELECT * ,777 as cantidad FROM CatGestion where idProceso = ".$id);
 
 		return $result->result_array();
 	}

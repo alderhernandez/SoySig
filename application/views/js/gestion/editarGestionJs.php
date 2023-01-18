@@ -18,11 +18,12 @@
 
 		if (bandera) {
 			$.ajax({
-						url: "<?php echo base_url("index.php/guardarEditarProceso")?>",
+						url: "<?php echo base_url("index.php/guardarEditarGestion")?>",
 						type: "POST",
 						data: {
 							descripcion: $('#txtDescripcion').val(),
-							id: <?php echo $datos[0]["IdProceso"];?>,
+							idProceso: $('#selectProceso').val(),
+							id: <?php echo $datos[0]["IdGestion"];?>,
 							estado: $( "#radioActivo:checked" ).length
 						},
 						success: function(data){

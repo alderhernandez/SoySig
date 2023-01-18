@@ -32,12 +32,13 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Descripción</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Fecha Creación</th>
                                     <th scope="col">Ultima Actualización</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Ver Gestiones</th>
+                                    <th scope="col">Agregar gestiones</th>
                                 </tr>
                             </thead>
                             <tbody>

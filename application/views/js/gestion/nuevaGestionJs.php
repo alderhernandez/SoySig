@@ -7,33 +7,31 @@
 		let bandera = true;
 
 		if ($('#txtDescripcion').val().length<4) {
-			alert("error");
+			alert("error descripcion demasiado corta");
 			bandera = false
 		}
-        /*globalFunction({
-			"id": this.id,
-			"mensaje" : 'prueba',
-			"tipo" : 'error'
-		});*/
+		if ($('#selectProceso').val() == null) {
+			alert("Seleccione un proceso");
+			bandera = false
+		}
 
 		if (bandera) {
 			$.ajax({
-						url: "<?php echo base_url("index.php/guardarEditarProceso")?>",
+						url: "<?php echo base_url("index.php/guardarGestion")?>",
 						type: "POST",
 						data: {
 							descripcion: $('#txtDescripcion').val(),
-							id: <?php echo $datos[0]["IdProceso"];?>,
-							estado: $( "#radioActivo:checked" ).length
+							idProceso: $('#selectProceso').val(),
+							siglas: $('#siglas').val(),
 						},
 						success: function(data){
 							let obj = jQuery.parseJSON(data);
 							$.each(obj, function (index, value) {
 								sms = value["mensaje"];
 								tipo = value["tipo"];
-							});						
+							});
 						},
-						error: function(request, status, error){
-							
+						error: function(request, status, error){							
 				}
 			});
 		}

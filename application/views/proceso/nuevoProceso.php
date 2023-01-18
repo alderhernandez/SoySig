@@ -24,6 +24,7 @@
                             </div>
 							<div>
                             <button type="button" id="btnGuardar" class="btn btn-primary mb-0">Guardar</button>
+							<a href="<?php echo base_url('index.php/procesos') ?>" class="btn btn-danger mb-0">Cancelar</a>
 							</div>
                         </form>
                     </div>

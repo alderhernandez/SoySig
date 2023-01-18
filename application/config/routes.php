@@ -60,4 +60,16 @@ $route['procesosSearch'] = 'ProcesoController/procesosSearch';
 $route['nuevoProcesos'] = 'ProcesoController/nuevoProcesos';
 $route['guardarProceso'] = 'ProcesoController/guardarProceso';
 $route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
-$route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
+$route['verGestionesProceso/(:any)'] = 'ProcesoController/verGestionesProceso/$1';
+
+
+
+/***gestiones */
+
+$route['gestiones'] = 'GestionController/index';
+$route['nuevaGestion/(:any)'] = 'GestionController/nuevaGestion/$1';
+$route['nuevaGestion'] = 'GestionController/nuevaGestion';
+$route['guardarGestion'] = 'GestionController/guardarGestion';
+$route['gestionSearch'] = 'GestionController/gestionSearch';
+$route['editarGestion/(:any)'] = 'GestionController/editarGestion/$1';
+$route['guardarEditarGestion'] = 'GestionController/guardarEditarGestion';
