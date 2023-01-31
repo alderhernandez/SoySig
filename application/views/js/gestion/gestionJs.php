@@ -54,7 +54,8 @@
                 {"data" : "Estado"},
 				{"data" : "FechaCrea"},				
                 {"data" : "FechaEdita"},
-				{"data" : "Editar"}
+				{"data" : "Editar"},
+				{"data" : "AgregarDocumento"}
                 
                
 			]

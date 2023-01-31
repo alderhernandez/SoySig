@@ -73,3 +73,7 @@ $route['guardarGestion'] = 'GestionController/guardarGestion';
 $route['gestionSearch'] = 'GestionController/gestionSearch';
 $route['editarGestion/(:any)'] = 'GestionController/editarGestion/$1';
 $route['guardarEditarGestion'] = 'GestionController/guardarEditarGestion';
+$route['agregarDocumentoGestion/(:any)'] = 'GestionController/agregarDocumentoGestion/$1';
+$route['guardarDocumento'] = 'GestionController/guardarDocumento';
+$route['editarDocumento/(:any)'] = 'GestionController/editarDocumento/$1';
+$route['guardarDocumentoEditar'] = 'GestionController/guardarDocumentoEditar';

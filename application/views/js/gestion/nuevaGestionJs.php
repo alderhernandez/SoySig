@@ -15,6 +15,12 @@
 			bandera = false
 		}
 
+		if ($('#siglas').val() == null) {
+			alert("Digite una sigla");
+			bandera = false
+		}
+
+
 		if (bandera) {
 			$.ajax({
 						url: "<?php echo base_url("index.php/guardarGestion")?>",

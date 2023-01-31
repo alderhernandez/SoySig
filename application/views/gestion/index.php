@@ -37,7 +37,8 @@
                                     <th scope="col">Estado</th>
                                     <th scope="col">Fecha Creación</th>
                                     <th scope="col">Ultima Actualización</th>
-                                    <th scope="col">Editar</th>                                                                        
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Agregar documento</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -19,9 +19,13 @@
                     <div class="card-body">
                         <form class="needs-validation tooltip-label-right" novalidate="">
                             <div class="form-group position-relative error-l-50">
-								<label>Descripción de la gestion:*</label> 
+								<label>Descripción de la gestion: *</label> 
 								<input type="text" id="txtDescripcion" class="form-control" required="">
 								<div class="invalid-tooltip">Descripción es requerida!</div>
+								<br>								
+								<label>Siglas: *</label> 
+								<input type="text" id="siglas" class="form-control" required="" placeholder="E 01">
+								<div class="invalid-tooltip">Sigla es requerida!</div>
 								<br>								
 								<label>Proceso al que pertenece:</label> 
                                 <select id="selectProceso" class="form-control">
