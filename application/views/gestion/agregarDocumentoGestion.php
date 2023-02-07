@@ -77,9 +77,9 @@
 				}
                     foreach ($documentos as $key) {
                         echo '
-                        <div class="col-xxl-5 col-xl-6 col-12">
+                        <div class="col-xxl-12 col-xl-6 col-12">
                             <div class="card d-flex flex-row mb-4 media-thumb-container">
-								<a class="d-flex align-self-center media-thumbnail-icon" href="'.base_url('/uploads/1674684357680.png').'">
+								<a class="d-flex align-self-center media-thumbnail-icon" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'">
 									<i class="iconsminds-data-download"></i>
 								</a>
                                 <div class="d-flex flex-grow-1 min-width-zero">
@@ -89,14 +89,16 @@
                                             <p class="list-item-heading mb-1 ">'.$key["Nombre"].'</p>
                                         </a>
                                         <p class="mb-1 text-muted text-small w-100 ">Creado: '.rtrim($key["FechaCrea"],'.000').'</p>
-										<p class="mb-1 text-muted text-small w-100 ">Actualizado: '.rtrim($key["FechaEdita"],'.000').'</p>                              
-										<a class="list-item-heading mb-0  w-100 w-xs-100 mt-0" href="#">
+										<p class="mb-1 text-muted text-small w-100 ">Actualizado: '.rtrim($key["FechaEdita"],'.000').'</p>
+										<a class="list-item-heading mb-0  w-100 w-xs-100 mt-0" href="'.base_url("index.php/verHistorial/").$key["IdDocumento"].'">
 											<i class="iconsminds-check heading-icon"></i> <span class="align-middle d-inline-block">Ver historial</span>
 										</a>
                                     </div>
-                                    <div class="pl-1 align-self-center"><label
-                                            class="custom-control custom-checkbox mb-0"><input type="checkbox"
-                                                class="custom-control-input"> <span class="custom-control-label"></span></label>
+                                    <div class="pl-1 align-self-center">
+										<label class="custom-control custom-checkbox mb-0">
+											<input type="checkbox" class="custom-control-input"> 
+											<span class="custom-control-label"></span>
+										</label>
                                     </div>
                                 </div>
                             </div>

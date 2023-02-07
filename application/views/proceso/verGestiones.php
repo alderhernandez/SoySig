@@ -42,143 +42,33 @@
 						</div>
 						<div class="col-12 col-lg-8">
 							<div class="sortable-survey">
-                                <?php foreach ($gestiones as $key ) {
-                                    echo 
-                                } ?>
+                                
+                                    
+                                
 								<div draggable="false" class="" style="">
-									<div class="card question d-flex mb-4 edit-quesiton">
+								<?php foreach ($gestiones as $key ) {
+									echo '<div class="card question d-flex mb-4 edit-quesiton">
 										<div class="d-flex flex-grow-1 min-width-zero">
 											<div
 												class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
 												<div class="list-item-heading mb-0 truncate w-80 mb-1 mt-1"><span
-														class="heading-number d-inline-block">1 </span>Age</div>
+														class="heading-number d-inline-block">'.$key["IdGestion"].' </span>'.$key["Descripcion"].'</div>
 											</div>
 											<div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-												<button class="btn btn-outline-theme-3 icon-button edit-button"><i
-														class="simple-icon-pencil"></i></button> <button
-													class="btn btn-outline-theme-3 icon-button view-button"><i
-														class="simple-icon-eye"></i></button> <button
-													class="btn btn-outline-theme-3 icon-button rotate-icon-click collapsed"
-													type="button" data-toggle="collapse" data-target="#q1"
-													aria-expanded="false" aria-controls="q1"><i
-														class="simple-icon-arrow-down with-rotate-icon"></i></button>
+												<a href="'.base_url("index.php/editarGestion/").$key["IdGestion"].'" class="btn btn-outline-theme-3 icon-button view-button">
+													<i class="simple-icon-eye"></i>
+												</a>
 											</div>
 										</div>
-										<div class="question-collapse collapse" id="q1" style="">
-											<div class="card-body pt-0">
-												<div class="edit-mode">
-													<div class="form-group mb-3"><label>Title</label> <input
-															class="form-control" type="text" value="Age"></div>
-													<div class="form-group mb-5"><label>Question</label> <input
-															class="form-control" type="text" value="How old are you?">
-													</div>
-													<div class="separator mb-4"></div>
-													<div class="form-group"><label class="d-block">Answer Type</label>
-														<select
-															class="form-control select2-single select2-hidden-accessible"
-															data-width="100%" tabindex="-1" aria-hidden="true">
-															<option label="&nbsp;">&nbsp;</option>
-															<option value="0">Text Input</option>
-															<option value="1" selected="selected">Single Select</option>
-															<option value="2">Multiple Select</option>
-															<option value="3">Checkbox</option>
-															<option value="4">Radiobutton</option>
-														</select><span
-															class="select2 select2-container select2-container--bootstrap"
-															dir="ltr" style="width: 100%;"><span class="selection"><span
-																	class="select2-selection select2-selection--single form-control"
-																	role="combobox" aria-haspopup="true"
-																	aria-expanded="false" tabindex="0"
-																	aria-labelledby="select2-e5i7-container"><span
-																		class="select2-selection__rendered"
-																		id="select2-e5i7-container"
-																		title="Single Select">Single Select</span><span
-																		class="select2-selection__arrow"
-																		role="presentation"><b
-																			role="presentation"></b></span></span></span><span
-																class="dropdown-wrapper"
-																aria-hidden="true"></span></span></div>
-													<div class="form-group"><label class="d-block">Answers</label>
-														<div class="answers mb-3 sortable">
-															<div class="mb-1 position-relative"><input
-																	class="form-control" type="text" value="18-24">
-																<div class="input-icons"><span
-																		class="badge badge-pill handle pr-0 mr-0"><i
-																			class="simple-icon-cursor-move"></i>
-																	</span><span class="badge badge-pill"><i
-																			class="simple-icon-ban"></i></span></div>
-															</div>
-															<div class="mb-1 position-relative"><input
-																	class="form-control" type="text" value="24-30">
-																<div class="input-icons"><span
-																		class="badge badge-pill handle pr-0 mr-0"><i
-																			class="simple-icon-cursor-move"></i>
-																	</span><span class="badge badge-pill"><i
-																			class="simple-icon-ban"></i></span></div>
-															</div>
-															<div class="mb-1 position-relative"><input
-																	class="form-control" type="text" value="30-40">
-																<div class="input-icons"><span
-																		class="badge badge-pill handle pr-0 mr-0"><i
-																			class="simple-icon-cursor-move"></i>
-																	</span><span class="badge badge-pill"><i
-																			class="simple-icon-ban"></i></span></div>
-															</div>
-															<div class="mb-1 position-relative"><input
-																	class="form-control" type="text" value="40-50">
-																<div class="input-icons"><span
-																		class="badge badge-pill handle pr-0 mr-0"><i
-																			class="simple-icon-cursor-move"></i>
-																	</span><span class="badge badge-pill"><i
-																			class="simple-icon-ban"></i></span></div>
-															</div>
-															<div class="mb-1 position-relative"><input
-																	class="form-control" type="text" value="50+">
-																<div class="input-icons"><span
-																		class="badge badge-pill handle pr-0 mr-0"><i
-																			class="simple-icon-cursor-move"></i>
-																	</span><span class="badge badge-pill"><i
-																			class="simple-icon-ban"></i></span></div>
-															</div>
-														</div>
-														<div class="text-center"><button type="button"
-																class="btn btn-outline-primary btn-sm mb-2"><i
-																	class="simple-icon-plus btn-group-icon"></i> Add
-																Answer</button></div>
-													</div>
-												</div>
-												<div class="view-mode"><label>How old are you?</label> <select
-														class="form-control select2-single select2-hidden-accessible"
-														data-width="100%" tabindex="-1" aria-hidden="true">
-														<option label="&nbsp;">&nbsp;</option>
-														<option value="0">18-24</option>
-														<option value="1">24-30</option>
-														<option value="2">30-40</option>
-														<option value="3">40-50</option>
-														<option value="4">50+</option>
-													</select><span
-														class="select2 select2-container select2-container--bootstrap"
-														dir="ltr" style="width: 100%;"><span class="selection"><span
-																class="select2-selection select2-selection--single form-control"
-																role="combobox" aria-haspopup="true"
-																aria-expanded="false" tabindex="0"
-																aria-labelledby="select2-prrs-container"><span
-																	class="select2-selection__rendered"
-																	id="select2-prrs-container"
-																	title="&nbsp;">&nbsp;</span><span
-																	class="select2-selection__arrow"
-																	role="presentation"><b
-																		role="presentation"></b></span></span></span><span
-															class="dropdown-wrapper" aria-hidden="true"></span></span>
-												</div>
-											</div>
-										</div>
-									</div>
+									</div>';
+								} ?>
 								</div>								
 							</div>
-							<div class="text-center"><button type="button"
-									class="btn btn-outline-primary btn-sm mb-2"><i
-										class="simple-icon-plus btn-group-icon"></i> Agregar más gestiones</button></div>
+							<div class="text-center">
+								<a href="<?php echo base_url('index.php/nuevaGestion/').$proceso[0]["IdProceso"]; ?>" class="btn btn-outline-primary btn-sm mb-2">
+									<i class="simple-icon-plus btn-group-icon"></i> Agregar más gestiones
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>				

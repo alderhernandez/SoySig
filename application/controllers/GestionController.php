@@ -182,4 +182,17 @@ class GestionController extends CI_Controller {
 				echo json_encode($result);
             }
 	}
+
+	public function verHistorial($id)
+	{		
+		$data["datos"] = $this->GestionModel->getDocumento($id);
+		$data["documentos"] = $this->GestionModel->getHistorialDocumento($id);
+		
+		
+		$this->load->view('header/header');
+		$this->load->view('menu/menu');
+		$this->load->view('gestion/verHistorial',$data);
+		$this->load->view('footer/footer');
+        //$this->load->view('js/gestion/editarDocumentoJs');
+	}
 }

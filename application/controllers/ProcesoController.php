@@ -57,6 +57,7 @@ class ProcesoController extends CI_Controller {
 	public function verGestionesProceso($id)
 	{
 		$data["proceso"] = $this->ProcesoModel->getProceso($id,null);
+		$data["gestiones"] = $this->ProcesoModel->getGestiones($id,null);
 
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
@@ -64,4 +65,6 @@ class ProcesoController extends CI_Controller {
 		$this->load->view('footer/footer');
         $this->load->view('js/procesos/nuevoProcesosJs');
 	}
+
+	
 }

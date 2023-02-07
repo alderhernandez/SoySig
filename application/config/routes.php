@@ -77,3 +77,7 @@ $route['agregarDocumentoGestion/(:any)'] = 'GestionController/agregarDocumentoGe
 $route['guardarDocumento'] = 'GestionController/guardarDocumento';
 $route['editarDocumento/(:any)'] = 'GestionController/editarDocumento/$1';
 $route['guardarDocumentoEditar'] = 'GestionController/guardarDocumentoEditar';
+$route['verHistorial/(:any)'] = 'GestionController/verHistorial/$1';
+$route['login'] = 'Welcome/login';
+$route["Acreditar"] = "Welcome/Acreditar";
+$route["salir"] = "Welcome/salir";

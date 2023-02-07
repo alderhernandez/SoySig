@@ -137,6 +137,12 @@ class ProcesoModel extends CI_Model
 		return $result->result_array();
 	}
 
+	public function getGestiones($idProeso){
+		
+		$gestiones = $this->db->query("SELECT * FROM CatGestion where Estado = 'ACTIVO' and IdProceso = ".$idProeso);
+		return $gestiones->result_array();
+	}
+
 }
 
 /* End of file .php */

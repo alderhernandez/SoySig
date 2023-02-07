@@ -3,26 +3,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
+
+    function __construct()
+	{
+		parent::__construct();
+		$this->load->model("LoginModel"); 
+		$this->load->library("session");
+	}
+
+
 	public function index()
 	{
-		$this->load->view('header/header');
+
+		$this->load->view('landing/index');
+		
+		/*$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('welcome_message');
-		$this->load->view('footer/footer');
+		$this->load->view('footer/footer');*/
 	}
+
+	public function login(){
+		$this->load->view('login/login');
+	}
+
+
+	public function Acreditar()
+    {
+        $this->form_validation->set_rules('username', 'nombre', 'required');
+        $this->form_validation->set_rules('pwd', 'pass', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('?error=1');
+        }
+        else {
+            $name = $this->input->get_post('username');
+            $pass = md5($this->input->get_post('pwd'));
+            $data['user'] = $this->LoginModel->login($name, $pass);
+            
+            if ($data['user'] == 0) {
+                redirect('login');
+            }
+            else {
+                $sessiondata = array(
+                    'id' => $data['user'][0]['IdUsuario'],
+                    'User' => $data['user'][0]['Usuario'],
+                    'Name' => $data['user'][0]['Nombres'],
+                    'Apelli' => $data['user'][0]['Apellidos'],                    
+                    'logged' => 1
+                );
+                $this->session->set_userdata($sessiondata);
+
+                if ($this->session->userdata) {                    
+                    redirect('gestiones');
+                }
+            }
+        }
+    }
+
+    function salir(){
+        $this->session->sess_destroy();
+        $sessiondata = array('logged' => 0);
+        redirect(base_url() . 'index.php', 'refresh');
+    }
 }

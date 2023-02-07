@@ -230,7 +230,11 @@ class GestionModel extends CI_Model
 			$and = "or IdPadre = ".$padre->result_array()[0]["IdPadre"];
 		}
 		//echo "SELECT * FROM TblDocumentos where IdPadre = ".$id." or IdPadre = ".$padre->result_array()[0]["IdPadre"];
-		$result = $this->db->query("SELECT * FROM TblDocumentos where IdPadre = ".$id."".$and." order by FechaCrea desc");
+		$result = $this->db->query("SELECT t0.*,concat(t1.Nombres,' ',t1.Apellidos) as UsuarioCrea,concat(t2.Nombres,' ',t2.Apellidos) as UsuarioEdita
+									FROM TblDocumentos t0 
+									inner join Usuarios t1 on t1.IdUsuario = t0.IdUsuarioCrea
+									left join Usuarios t2 on t2.IdUsuario = t0.IdUsuarioEdita
+									where t0.IdPadre = ".$id."".$and." order by t0.FechaCrea desc");
 		return $result->result_array();
 	}
 }
