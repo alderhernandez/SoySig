@@ -11,6 +11,9 @@ class GestionModel extends CI_Model
 		parent::__construct();
 		$this->load->database();
 		date_default_timezone_set("America/Managua");	
+		if ($this->session->userdata("logged") != 1) {
+            redirect(base_url() . 'index.php', 'refresh');
+        }
 	}
 
 	public function GestionSearch($filtro){
@@ -60,7 +63,7 @@ class GestionModel extends CI_Model
 				'Sigla' => $siglas,
 				'Estado' => 'ACTIVO',
 				"FechaCrea" => gmdate(date("Y-m-d h:i:s")),
-				'IdUsuarioCrea' => 1,
+				'IdUsuarioCrea' => $this->session->userdata('id'),
 			);
 
 			$result = $this->db->insert('CatGestion',$insert);
@@ -99,7 +102,7 @@ class GestionModel extends CI_Model
 				'IdProceso' => $idProceso,
 				'Estado' => $estado == 1 ? 'ACTIVO' : "INACTIVO",
 				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
-				'IdUsuarioEdita' => 1
+				'IdUsuarioEdita' => $this->session->userdata('id')
 			);
 			
 
@@ -190,7 +193,7 @@ class GestionModel extends CI_Model
 				'Tipo' => $file_ext,
 				'Estado' => 'ACTIVO',
 				"FechaCrea" => gmdate(date("Y-m-d h:i:s")),
-				'IdUsuarioCrea' => 1,//todo
+				'IdUsuarioCrea' => $this->session->userdata('id'),
 				'IdArea' => $area
 			);
 
@@ -250,6 +253,25 @@ class GestionModel extends CI_Model
 									left join Usuarios t2 on t2.IdUsuario = t0.IdUsuarioEdita
 									where t0.IdPadre = ".$id."".$and." order by t0.FechaCrea desc");
 		return $result->result_array();
+	}
+
+	public function downloadFile($id)
+	{
+
+		//todo validar permiso
+		$this->load->helper('download');
+		
+		$fileInfo = $this->db->query("SELECT * FROM TblDocumentos where IdDocumento = ".$id);
+		if ($fileInfo->num_rows()==0) {
+			return null;
+		}
+		$file = 'uploads/'.$fileInfo->result_array()[0]["Url"].".".$fileInfo->result_array()[0]["Tipo"];
+        $stored_file_name .= $fileInfo->result_array()[0]["Nombre"]; 
+
+		$original .= $result['file_name']; 
+
+		force_download($fileInfo->result_array()[0]["Nombre"].".".$fileInfo->result_array()[0]["Tipo"],file_get_contents($file));
+
 	}
 }
 

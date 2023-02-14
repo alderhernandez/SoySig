@@ -12,7 +12,9 @@ class GestionController extends CI_Controller {
 		$this->load->model('ProcesoModel');		
 		$this->load->model('AreasModel');		
 		$this->load->helper(array('form', 'url'));
-
+		if ($this->session->userdata("logged") != 1) {
+            redirect(base_url() . 'index.php', 'refresh');
+        }
 	}
 
 

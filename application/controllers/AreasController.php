@@ -11,7 +11,9 @@ class AreasController extends CI_Controller {
 		$this->load->model('GestionModel');	
 		$this->load->model('ProcesoModel');		
 		$this->load->helper(array('form', 'url'));
-
+		if ($this->session->userdata("logged") != 1) {
+            redirect(base_url() . 'index.php', 'refresh');
+        }
 	}
 
 

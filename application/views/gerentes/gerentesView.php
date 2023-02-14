@@ -256,9 +256,10 @@
 </style>
 
 
-<main class="default-transition" style="opacity: 5;">
+<main class="default-transition" style="margin-left:40px; opacity: 5;">
 <div class="container-fluid library-app">
-  <h2 class="mb-3">SISTEMA SIG</h2>
+  <h1 class="display-4">SISTEMA SIG</h1>
+  <h2 class="">PROCESOS INTERNOS</h2>
   <div class="col-12 list">
 
   
@@ -284,11 +285,10 @@
               </button>
               </div>
         </div>
-        <div class="question-collapse show" id="q-'.$i.'" style="">
+        <div class="question-collapse collapse" id="q-'.$i.'" style="">
           <div class="card-body pt-0">';
             foreach ($key["gestiones"] as $keyGestiones ) {
               echo '
-
               <a href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'">
                 <div class="card d-flex flex-row mb-4 active">
                   <div class="d-flex flex-grow-1 min-width-zero">

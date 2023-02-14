@@ -79,13 +79,13 @@
                         echo '
                         <div class="col-xxl-12 col-xl-6 col-12">
                             <div class="card d-flex flex-row mb-4 media-thumb-container">
-								<a class="d-flex align-self-center media-thumbnail-icon" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'">
+								<a target="_blank" class="d-flex align-self-center media-thumbnail-icon" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'">
 									<i class="iconsminds-data-download"></i>
 								</a>
                                 <div class="d-flex flex-grow-1 min-width-zero">
                                     <div
                                         class="card-body align-self-center d-flex flex-column justify-content-between min-width-zero align-items-lg-center">
-                                        <a href="'.base_url("index.php/editarDocumento/").$key["IdDocumento"].'" class="w-100">
+                                        <a  href="'.base_url("index.php/editarDocumento/").$key["IdDocumento"].'" class="w-100">
                                             <p class="list-item-heading mb-1 ">'.$key["Nombre"].'</p>
                                         </a>
                                         <p class="mb-1 text-muted text-small w-100 ">Creado: '.rtrim($key["FechaCrea"],'.000').'</p>

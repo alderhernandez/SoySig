@@ -67,4 +67,10 @@ class Welcome extends CI_Controller {
         $sessiondata = array('logged' => 0);
         redirect(base_url() . 'index.php', 'refresh');
     }
+
+
+    public function denegado()
+    {
+        $this->load->view("denegado");
+    }
 }

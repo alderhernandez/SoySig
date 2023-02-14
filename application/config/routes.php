@@ -86,3 +86,9 @@ $route["salir"] = "Welcome/salir";
 
 $route["gerentesView"] = "GerentesController/gerentesView";
 $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
+$route["downloadFile/(:any)"] = "GerentesController/downloadFile/$1";
+
+
+/******acceso denegado permiso */
+
+$route["denegado"] = "welcome/denegado";
