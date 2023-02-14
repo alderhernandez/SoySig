@@ -54,7 +54,7 @@ class GestionModel extends CI_Model
 				return;
 			}
 
-			$insert = array(	
+			$insert = array(
 				'Descripcion' => $descripcion,
 				'IdProceso' => $idProceso,
 				'Sigla' => $siglas,
@@ -93,7 +93,7 @@ class GestionModel extends CI_Model
 				echo json_encode($mensaje);
 				return;
 			}
-//echo $estado;return;
+			//echo $estado;return;
 			$insert = array(	
 				'Descripcion' => $descripcion,
 				'IdProceso' => $idProceso,
@@ -132,8 +132,23 @@ class GestionModel extends CI_Model
 		return $result->result_array();
 	}
 
+
+	public function getGestionByProceso($id)
+	{
+		//$result =  $this->db->get('CatGestion',array('id'=>$id));
+		$result =  $this->db->query("SELECT * ,777 as cantidad FROM CatGestion where IdProceso = ".$id);
+
+		return $result->result_array();
+	}
+
+
 	public function getDocumentos($id)
 	{
+		$and = '';
+		$this->session->userdata();
+		if (true) {
+			# code...
+		}
 		$query = $this->db->query("SELECT * FROM TblDocumentos where Estado = 'Activo' and IdGestion = ".$id);
 
 		return $query->result_array();
@@ -209,7 +224,6 @@ class GestionModel extends CI_Model
 			return json_encode($mensaje);
 		}
 	}
-
 
 
 	public function getDocumento($id)

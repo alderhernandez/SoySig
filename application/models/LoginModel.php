@@ -13,8 +13,10 @@ class LoginModel extends CI_Model
             $this->db->where('Usuario', $name);
             $this->db->where('Clave', $pass);
             
-            $this->db->where("Estado",'ACTIVO');
-            $query = $this->db->get('usuarios');
+      
+            $query = $this->db->query("SELECT *, t1.Descripcion as Area FROM Usuarios t0 
+                            LEFT JOIN CatAreas t1 on t1.IdArea = t0.IdArea 
+                            where t0.Estado = 'ACTIVO' ");
 
             if ($query->num_rows() == 1) {
                 return $query->result_array();

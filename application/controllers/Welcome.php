@@ -7,8 +7,7 @@ class Welcome extends CI_Controller {
     function __construct()
 	{
 		parent::__construct();
-		$this->load->model("LoginModel"); 
-		$this->load->library("session");
+		$this->load->model("LoginModel");
 	}
 
 
@@ -49,13 +48,15 @@ class Welcome extends CI_Controller {
                     'id' => $data['user'][0]['IdUsuario'],
                     'User' => $data['user'][0]['Usuario'],
                     'Name' => $data['user'][0]['Nombres'],
-                    'Apelli' => $data['user'][0]['Apellidos'],                    
+                    'Apelli' => $data['user'][0]['Apellidos'],
+                    'IdArea' => $data['user'][0]['IdArea'],
+                    'Area' => $data['user'][0]['Area'],
                     'logged' => 1
                 );
                 $this->session->set_userdata($sessiondata);
 
                 if ($this->session->userdata) {                    
-                    redirect('gestiones');
+                    redirect('gerentesView');
                 }
             }
         }

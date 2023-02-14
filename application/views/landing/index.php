@@ -57,7 +57,7 @@
                 <div class="masthead-heading text-uppercase">Bienvenido!</div>
                 <?php 
                 if($this->session->userdata("logged") == 1){
-                    echo '<a style="background-color:#023E71" class="btn btn-primary btn-xl text-uppercase" href="'.base_url('index.php/').'">Acceder a plataforma</a>';
+                    echo '<a style="background-color:#023E71" class="btn btn-primary btn-xl text-uppercase" href="'.base_url('index.php/gerentesView').'">Acceder a plataforma</a>';
                 }
                 ?>
             </div>

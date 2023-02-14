@@ -81,3 +81,8 @@ $route['verHistorial/(:any)'] = 'GestionController/verHistorial/$1';
 $route['login'] = 'Welcome/login';
 $route["Acreditar"] = "Welcome/Acreditar";
 $route["salir"] = "Welcome/salir";
+
+/*****vistas de gerentes */
+
+$route["gerentesView"] = "GerentesController/gerentesView";
+$route["documentosView/(:any)"] = "GerentesController/documentosView/$1";

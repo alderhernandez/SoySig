@@ -36,7 +36,7 @@
 										foreach ($procesos as $key ) {
 											if ($idProcesoParam != null) {
 												if ($idProcesoParam == $key["IdProceso"]) {
-													echo '<option value="'.$key["IdProceso"].' selected">'.$key["Descripcion"].'</option>';
+													echo '<option value="'.$key["IdProceso"].'" selected>'.$key["Descripcion"].'</option>';
 												}
 											}else{
 												echo '<option value="'.$key["IdProceso"].'">'.$key["Descripcion"].'</option>';
