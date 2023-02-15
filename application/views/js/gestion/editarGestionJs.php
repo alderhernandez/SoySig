@@ -31,6 +31,14 @@
 							$.each(obj, function (index, value) {
 								sms = value["mensaje"];
 								tipo = value["tipo"];
+
+								new swal({
+									text: sms,
+									type: tipo,
+									allowOutsideClick: false
+								}).then(function () {
+									//location.reload();
+								});
 							});						
 						},
 						error: function(request, status, error){

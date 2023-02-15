@@ -98,7 +98,7 @@ class ProcesoModel extends CI_Model
 				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
 				'IdUsuarioEdita' => $this->session->userdata('id')
 			);
-			echo $id;
+			
 
 					  $this->db->where('IdProceso',$id);
 			$result = $this->db->update('CatProcesos',$insert);

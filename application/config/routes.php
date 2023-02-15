@@ -61,7 +61,7 @@ $route['nuevoProcesos'] = 'ProcesoController/nuevoProcesos';
 $route['guardarProceso'] = 'ProcesoController/guardarProceso';
 $route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
 $route['verGestionesProceso/(:any)'] = 'ProcesoController/verGestionesProceso/$1';
-
+$route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
 
 
 /***gestiones */

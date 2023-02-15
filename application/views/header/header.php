@@ -15,9 +15,7 @@ header('Access-Control-Allow-Origin: *');
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">
-    
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
