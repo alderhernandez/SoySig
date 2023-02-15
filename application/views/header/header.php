@@ -51,6 +51,7 @@ header('Access-Control-Allow-Origin: *');
         }
     </style>
 
+
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -142,12 +143,16 @@ header('Access-Control-Allow-Origin: *');
                     id="fullScreenButton"><i class="simple-icon-size-fullscreen"></i> <i
                         class="simple-icon-size-actual"></i></button>-->
             </div>
-            <div class="user d-inline-block"><button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><span class="name">Sarah Kortney</span> <span><img
-                            alt="Profile Picture" src="<?php echo base_url()?>assets/img/profiles/l-1.jpg"></span></button>
-                <div class="dropdown-menu dropdown-menu-right mt-3"><a class="dropdown-item" href="#">Account</a> <a
-                        class="dropdown-item" href="#">Features</a> <a class="dropdown-item" href="#">History</a> <a
-                        class="dropdown-item" href="#">Support</a> <a class="dropdown-item" href="#">Sign out</a></div>
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><span class="name"><?php echo $this->session->userdata("Name")?></span> 
+                    <span><img alt="Profile Picture" src="<?php echo base_url()?>assets/img/profiles/l-1.jpg"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                        <a href="<?php echo base_url('index.php/procesos'); ?>" class="dropdown-item" href="#">Administración</a>
+                        <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item" href="#">Vista general</a>
+                        <a class="dropdown-item" href="#">Salir</a>
+                </div>
             </div>
         </div>
     </nav>

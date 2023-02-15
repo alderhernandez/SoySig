@@ -11,6 +11,9 @@ class ProcesoModel extends CI_Model
 		parent::__construct();
 		$this->load->database();
 		date_default_timezone_set("America/Managua");	
+		if ($this->session->userdata("logged") != 1) {
+            redirect(base_url() . 'index.php', 'refresh');
+        }
 	}
 
 	public function procesosSearch($filtro){
@@ -55,7 +58,7 @@ class ProcesoModel extends CI_Model
 				'Descripcion' => $descripcion,
 				'Estado' => 'ACTIVO',
 				"FechaCrea" => gmdate(date("Y-m-d h:i:s")),
-				'IdUsuarioCrea' => 1,
+				'IdUsuarioCrea' => $this->session->userdata('id'),
 			);
 
 			$result = $this->db->insert('CatProcesos',$insert);
@@ -93,9 +96,9 @@ class ProcesoModel extends CI_Model
 				'Descripcion' => $descripcion,
 				'Estado' => $estado == 1 ? 'ACTIVO' : "INACTIVO",
 				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
-				'IdUsuarioEdita' => 1
+				'IdUsuarioEdita' => $this->session->userdata('id')
 			);
-			echo $id;
+			
 
 					  $this->db->where('IdProceso',$id);
 			$result = $this->db->update('CatProcesos',$insert);

@@ -61,7 +61,7 @@ $route['nuevoProcesos'] = 'ProcesoController/nuevoProcesos';
 $route['guardarProceso'] = 'ProcesoController/guardarProceso';
 $route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
 $route['verGestionesProceso/(:any)'] = 'ProcesoController/verGestionesProceso/$1';
-
+$route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
 
 
 /***gestiones */
@@ -86,3 +86,9 @@ $route["salir"] = "Welcome/salir";
 
 $route["gerentesView"] = "GerentesController/gerentesView";
 $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
+$route["downloadFile/(:any)"] = "GerentesController/downloadFile/$1";
+
+
+/******acceso denegado permiso */
+
+$route["denegado"] = "welcome/denegado";

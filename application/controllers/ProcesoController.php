@@ -7,6 +7,9 @@ class ProcesoController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('ProcesoModel');		
+		if ($this->session->userdata("logged") != 1) {
+            redirect(base_url() . 'index.php', 'refresh');
+        }
 	}
 
 

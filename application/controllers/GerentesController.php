@@ -46,14 +46,23 @@ class GerentesController extends CI_Controller {
 
 	public function documentosView($id)
 	{
-		$data["archivos"] = $this->GestionModel->getDocumentos($id);
 
+		$data["datos"] = $this->GestionModel->getGestion($id);
+		$data["archivos"] = $this->GestionModel->getDocumentos($id);
 		//echo json_encode($this->session->userdata());	return;
+		//echo json_encode($data["datos"]);	return;
 
         $this->load->view('header/header');
-		$this->load->view('gerentes/gerentesView',$data);
+		$this->load->view('gerentes/documentosView',$data);
 		$this->load->view('footer/footer');
         $this->load->view('js/gestion/gestionJs');
+	}
+
+	public function downloadFile($id)
+	{
+		if (!empty($id)) {
+			$this->GestionModel->downloadFile($id);
+		}
 	}
 
 }
