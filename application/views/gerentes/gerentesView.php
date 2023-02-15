@@ -258,7 +258,7 @@
 
 <main class="default-transition" style="opacity: 5;">
 <div class="container-fluid library-app">
-  <h2 class="mb-3">SISTEMA SIG</h2>
+  <h2 class="mb-3" style="font-weight:bolder;">SISTEMA SIG</h2>
   <div class="col-12 list">
 
   
@@ -267,7 +267,7 @@
     foreach ($procesos as $key ) {
       
       echo '
-      <div class="card question d-flex mb-4 edit-quesiton">
+      <div class="card question d-flex mb-4 edit-quesiton active" style="font-weight:bolder;">
         <div class="d-flex flex-grow-1 min-width-zero">
           <div
             class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
@@ -289,14 +289,16 @@
             foreach ($key["gestiones"] as $keyGestiones ) {
               echo '
 
-              <a href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'">
-                <div class="card d-flex flex-row mb-4 active">
+              <a href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'" style="font-weight:bold;">
+                <div class="card d-flex flex-row mb-4 btn-outline-primary" 
+                     style="box-shadow: 0 3px 10px rgb(0 0 0 / 10%), 0 3px 5px rgb(0 0 0 / 10%);">
                   <div class="d-flex flex-grow-1 min-width-zero">
                     <div
                       class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                      <i class="iconsminds-folder-add-- text-warning" style="font-size:30px;font-weight:bolder;"></i>
                       <p class="list-item-heading mb-0 truncate w-40 w-xs-100 text-left" href="Pages.Product.Detail.html">'.$keyGestiones["Descripcion"].'</p>
-                      <p class="mb-0 text-small w-30 w-xs-100">Ultima Actualizacion: '.$keyGestiones["FechaCrea"].'</p>
-                      <div class="w-15 w-xs-100"><span class="badge badge-pill badge-secondary">'.strtoupper($keyGestiones["Sigla"]).'</span></div>
+                      <p style="font-weight:bold;" class="mb-0 text-small w-30 w-xs-100">Ultima Actualizacion: '.$keyGestiones["FechaCrea"].'</p>
+                      <div style="font-weight:bold;" class="w-15 w-xs-100"><span class="badge badge-pill badge-danger">'.strtoupper($keyGestiones["Sigla"]).'</span></div>
                     </div>
                   </div>
                 </div>
