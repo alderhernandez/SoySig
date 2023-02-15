@@ -6,8 +6,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	//'hostname' => '192.168.1.203',
-	'hostname' => '.',
+	'hostname' => '192.168.1.205',
+	//'hostname' => '.',
 	'username' => 'sa',
 	//'password' => '123',
 	'password' => '123',
