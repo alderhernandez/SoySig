@@ -17,7 +17,7 @@ header('Access-Control-Allow-Origin: *');
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">
     
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />-->
 
     <style>
 
@@ -49,6 +49,11 @@ header('Access-Control-Allow-Origin: *');
             border-color: #184f90eb;
             color: #fff !important;
         }
+
+        .card.question{
+            font-weight:bolder;
+        }
+        
     </style>
 
 
@@ -151,7 +156,7 @@ header('Access-Control-Allow-Origin: *');
                 <div class="dropdown-menu dropdown-menu-right mt-3">
                         <a href="<?php echo base_url('index.php/procesos'); ?>" class="dropdown-item" href="#">Administración</a>
                         <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item" href="#">Vista general</a>
-                        <a class="dropdown-item" href="#">Salir</a>
+                        <a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>
                 </div>
             </div>
         </div>

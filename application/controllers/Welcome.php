@@ -40,7 +40,7 @@ class Welcome extends CI_Controller {
             $pass = md5($this->input->get_post('pwd'));
             $data['user'] = $this->LoginModel->login($name, $pass);
             
-            if ($data['user'] == 0) {
+            if (count($data['user']) == 0) {
                 redirect('login');
             }
             else {

@@ -30,8 +30,8 @@
                 alert("Seleccione un area");bandera = false;
             }
 
-            if (bandera) {                
-                
+            if (bandera) {
+
                 var data = new FormData(document.getElementById("formDocumento"));
                 $.ajax({
                         url: "<?php echo base_url("index.php/guardarDocumento")?>",
