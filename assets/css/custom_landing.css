@@ -46,22 +46,24 @@ nav#mainNav .container .collapse.navbar-collapse ul .nav-item a {
     text-align:center;
 }
 .card.setting-toggle{
- position: fixed;
- top: 50%;
- left: 0;
- text-decoration: none;
- z-index: 1016;
- -webkit-transform: rotate(-90deg) translate3d(-25px, 60px, 0);
- transform: rotate(90deg) translate3d(-25px, 53px, 0);
- border-bottom-left-radius: 0;
- border-bottom-right-radius: 0;
- margin-top: -83px;
- background-color: #004E5B;
- border-radius: 20px 20px 0px 0px;
- height: 58px;
- width: 150px;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    text-decoration: none;
+    z-index: 1016;
+    -webkit-transform: rotate(-90deg) translate3d(-25px, 60px, 0);
+    transform: rotate(90deg) translate3d(-30px, 70px, 0);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    /* margin-top: -50px; */
+    background-color: #004E5B;
+    border-radius: 20px 20px 0px 0px;
+    height: 50px;
+    width: 190px;
 }
-
+.card.setting-toggle .card-body{
+    margin-top: -6px;
+}
 .card.setting-toggle .card-body a {
     flex: 1 1 auto;
     height: 32px;
@@ -84,19 +86,20 @@ header.masthead{
     padding-top: 0px!important;
 }
 .box {
-    width: 100%;
+   width: 100%;
     position: relative;
-    border-radius: 50px;
-    padding-top: 320px;
+    /* border-radius: 50px; */
+    /* padding-top: 320px; */
     margin: 115px 0px 0px 0px;
     height: 700px;
-    /*box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.8);*/
-    
+    /* box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.8); */
     display: flex;
-    align-items: end;
-    justify-content: space-between;
+    /* align-items: end; */
     flex-direction: column;
-
+    /* justify-content: space-evenly; */
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
 }
 .box > img {
     position: absolute;
@@ -104,7 +107,7 @@ header.masthead{
     top: 0;
     transition: all 0.5s;
     width: 100%;
-    height: 520px;
+    height: 720px;
     /*border-radius: 50px;*/
 }
 
@@ -113,20 +116,28 @@ header.masthead{
 }
 
 .box label {
-    margin: 250px auto auto 95px;
-    border: 5px solid #fff;    
+    margin: 12px auto auto 100px;
+    border: 3px solid white!important;
     cursor: pointer;
     transition: all 0.5s;
-    opacity: 0.6;
-    border-radius: 35px;
-
-    position: fixed;
-    right: 40px;
+    opacity: 0.6;    
+    /* position: fixed; */
+    /* right: 40px; */
+    /* flex: 010; */
+    z-index: 5;
+    /* position: absolute; */
+    /* row-gap: 100px; */
+    /* bottom: 250px; */
+    /* flex: 0 1 0%; */
+    display: flex;
+    align-self: flex-end;
+    /* margin-bottom: auto; */
+    /* margin-top: auto; */
+    margin: 16px;
 }
 
 .box label img {
-    display: block;
-    border-radius: 25px;
+     
 }
 .box input[name='animate']:checked+label {
     border-color: #000;

@@ -46,7 +46,7 @@ class GestionController extends CI_Controller {
 		//$data['datos'] = $this->ProcesoModel->getProceso($id);
 		$data['datos'] = $this->GestionModel->getGestion($id);
 		$data["procesos"] = $this->ProcesoModel->getProceso(null,'ACTIVO');
-		
+		//echo json_encode($data["datos"]);return;
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('gestion/editarGestion',$data);
@@ -117,7 +117,8 @@ class GestionController extends CI_Controller {
 	
 	public function guardarEditarGestion()
 	{
-		$this->GestionModel->guardarEditarGestion($this->input->post('descripcion'),$this->input->post('id'),$this->input->post('estado'),$this->input->post('idProceso'));
+
+		$this->GestionModel->guardarEditarGestion($this->input->post('descripcion'),$this->input->post('id'),$this->input->post('estado'),$this->input->post('idProceso'),$this->input->post('sigla'));
 	}
 
     public function gestionSearch()

@@ -8,6 +8,7 @@
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/gestiones');?>">Lista de Gestión</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/procesos');?>">Lista de Procesos</a></li>
 					</ol>
 				</nav>
 				<div class="separator mb-5"></div>
@@ -19,6 +20,10 @@
                 <div class="card mb-4">
                     <div class="card-body">                        
                         <form class="needs-validation tooltip-label-right" novalidate="">
+                            <div class="form-group position-relative error-l-50"><label>Sigla</label> 
+                                <input type="text" id="txtSigla" class="form-control" value="<?php echo $datos[0]["Sigla"]; ?>">
+                                <div class="invalid-tooltip">Sigla es requerida!</div>
+                            </div>
                             <div class="form-group position-relative error-l-50"><label>Descripción</label> 
                                 <input type="text" id="txtDescripcion" class="form-control" required="" value="<?php echo $datos[0]["Descripcion"];?>" >
                                 <div class="invalid-tooltip">Descripción es requerida!</div>
@@ -28,7 +33,7 @@
 								<?php 
 									foreach ($procesos as $key ) {
                                         $selected = '';
-                                        if ($key["IdProceso"] == $datos[0]["IdGestion"]) {
+                                        if ($key["IdProceso"] == $datos[0]["IdProceso"]) {
                                             $selected = 'selected';
                                         }
 									    echo '<option value="'.$key["IdProceso"].'" '.$selected.' >'.$key["Descripcion"].'</option>';

@@ -146,7 +146,7 @@ class ProcesoModel extends CI_Model
 		if($idProeso != null){
 			$and = " and IdProceso = ".$idProeso;
 		}
-		$gestiones = $this->db->query("SELECT * FROM CatGestion where Estado = 'ACTIVO' ".$and);
+		$gestiones = $this->db->query("SELECT * FROM CatGestion where Estado = 'ACTIVO' ".$and." order by sigla");
 		return $gestiones->result_array();
 	}
 

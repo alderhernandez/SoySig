@@ -23,6 +23,7 @@
 						data: {
 							descripcion: $('#txtDescripcion').val(),
 							idProceso: $('#selectProceso').val(),
+							sigla: $('#txtSigla').val(),
 							id: <?php echo $datos[0]["IdGestion"];?>,
 							estado: $( "#radioActivo:checked" ).length
 						},

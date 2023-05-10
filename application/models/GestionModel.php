@@ -85,28 +85,31 @@ class GestionModel extends CI_Model
 		}
 	}
 	
-	public function guardarEditarGestion($descripcion,$id,$estado,$idProceso)
+	public function guardarEditarGestion($descripcion,$id,$estado,$idProceso,$sigla)
 	{
 		$mensaje = array(); 
+		$this->db->trans_start();
 		try {
+			
 			if(strlen($descripcion)<5){
 				$mensaje[0]["retorno"] = -1;
 				$mensaje[0]["tipo"] = "error";
 				$mensaje[0]["mensaje"] = "La descripción debe tener al menos 5 caracteres";
 				echo json_encode($mensaje);
+				$this->db->rollBack();
 				return;
 			}
-			//echo $estado;return;
-			$insert = array(	
+			
+			$insert = array(
 				'Descripcion' => $descripcion,
 				'IdProceso' => $idProceso,
-				'Estado' => $estado == 1 ? 'ACTIVO' : "INACTIVO",
+				'Sigla' => $sigla,
+				'Estado' => $estado == 1 ? 'ACTIVO' : 'INACTIVO',
 				"FechaEdita" => gmdate(date("Y-m-d h:i:s")),
 				'IdUsuarioEdita' => $this->session->userdata('id')
 			);
 			
-
-					  $this->db->where('IdGestion',$id);
+			$this->db->where('IdGestion',$id);
 			$result = $this->db->update('CatGestion',$insert);
 
 			if ($result) {
@@ -127,6 +130,7 @@ class GestionModel extends CI_Model
 			return;
 		}
 	}
+
 	public function getGestion($id)
 	{
 		//$result =  $this->db->get('CatGestion',array('id'=>$id));

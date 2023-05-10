@@ -8,6 +8,7 @@
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/procesos');?>">Lista de Procesos</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/gestiones');?>">Lista de Gestiónes</a></li>
 					</ol>
 				</nav>
 				<div class="separator mb-5"></div>
@@ -24,7 +25,7 @@
                                 <div class="invalid-tooltip">Descripción es requerida!</div>
                             </div>
                             <div class="mb-4">   
-                            <?php echo $datos[0]["Estado"];?>                        
+                            Estado:
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="radioActivo" value="ACTIVO" <?php if ($datos[0]["Estado"] == 'ACTIVO') {echo 'checked';}?> name="customRadio" class="custom-control-input"> 
                                     <label class="custom-control-label" for="radioActivo">Activo</label>

@@ -52,7 +52,7 @@
 											<div
 												class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
 												<div class="list-item-heading mb-0 truncate w-80 mb-1 mt-1"><span
-														class="heading-number d-inline-block">'.$key["IdGestion"].' </span>'.$key["Descripcion"].'</div>
+														class="heading-number d-inline-block">'.$key["Sigla"].' </span>'.$key["Descripcion"].'</div>
 											</div>
 											<div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
 												<a href="'.base_url("index.php/editarGestion/").$key["IdGestion"].'" class="btn btn-outline-theme-3 icon-button view-button">

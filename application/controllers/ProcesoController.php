@@ -61,7 +61,7 @@ class ProcesoController extends CI_Controller {
 	{
 		$data["proceso"] = $this->ProcesoModel->getProceso($id,null);
 		$data["gestiones"] = $this->ProcesoModel->getGestiones($id,null);
-
+		
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('proceso/verGestiones',$data);
