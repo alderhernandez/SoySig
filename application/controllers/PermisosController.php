@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AreasController extends CI_Controller {
+class PermisosController extends CI_Controller {
 
 	protected $helpers = ['form'];
 
@@ -21,13 +21,15 @@ class AreasController extends CI_Controller {
 	{       
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
-		$this->load->view('permisos/index');
+		$this->load->view('gestion/index');
 		$this->load->view('footer/footer');
         $this->load->view('js/gestion/gestionJs');
 	}
 
 	public function getAreas($estado)
 	{
+
 		return $this->AreasModel->getAreas($estado);
+		
 	}
 }

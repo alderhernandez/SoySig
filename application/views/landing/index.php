@@ -17,6 +17,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url()?>assets/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url()?>assets/css/custom_landing.css" rel="stylesheet" />
+        <link href="<?php echo base_url()?>assets/css/custom_timeline.css" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,7 +116,7 @@
             </div>
         </header>
         <img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">
-        <!-- Services-->
+        <!-- Services-->        
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
@@ -270,7 +271,7 @@
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>1962</h4>
@@ -284,7 +285,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2022</h4>
@@ -294,7 +295,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>December 2015</h4>
@@ -304,7 +305,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>July 2020</h4>
